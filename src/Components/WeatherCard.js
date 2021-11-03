@@ -13,7 +13,7 @@ export default function WeatherCard({ weatherData }) {
     country,
     sunset,
   } = weatherData;
-  console.log(weatherData);
+  // console.log(weatherData);
 
   // //weatherMood
   // useEffect(() => {
