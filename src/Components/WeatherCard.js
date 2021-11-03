@@ -47,7 +47,7 @@ export default function WeatherCard({ weatherData }) {
       <div className="weatherIcon">
         {/* <i className={`wi ${weatherState}`}></i> */}
         <img
-          src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
+          src={`http://openweathermap.org/img/wn/${icon}@4x.png`}
           alt={weathermood}
         ></img>
       </div>
