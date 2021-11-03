@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 
 export default function WeatherCard({ weatherData }) {
-  const [weatherState, setWeatherState] = useState("");
+  //const [weatherState, setWeatherState] = useState("");
   const {
     temp,
     humidity,
     pressure,
     weathermood,
+    icon,
     cityname,
     windspeed,
     country,
@@ -14,28 +15,28 @@ export default function WeatherCard({ weatherData }) {
   } = weatherData;
   console.log(weatherData);
 
-  //weatherMood
-  useEffect(() => {
-    if (weathermood) {
-      switch (weathermood) {
-        case "Clouds":
-          setWeatherState("wi-cloudy");
-          break;
-        case "Haze":
-          setWeatherState("wi-fog");
-          break;
-        case "Clear":
-          setWeatherState("wi-day-sunny");
-          break;
-        case "Rain":
-          setWeatherState("wi-rain");
-          break;
+  // //weatherMood
+  // useEffect(() => {
+  //   if (weathermood) {
+  //     switch (weathermood) {
+  //       case "Clouds":
+  //         setWeatherState("wi-cloudy");
+  //         break;
+  //       case "Haze":
+  //         setWeatherState("wi-fog");
+  //         break;
+  //       case "Clear":
+  //         setWeatherState("wi-day-sunny");
+  //         break;
+  //       case "Rain":
+  //         setWeatherState("wi-rain");
+  //         break;
 
-        default:
-          setWeatherState("wi-day-sunny");
-      }
-    }
-  }, [weathermood]);
+  //       default:
+  //         setWeatherState("wi-day-sunny");
+  //     }
+  //   }
+  // }, [weathermood]);
 
   //coverting time
   let sec = sunset;
@@ -44,7 +45,11 @@ export default function WeatherCard({ weatherData }) {
   return (
     <article className="widget">
       <div className="weatherIcon">
-        <i className={`wi ${weatherState}`}></i>
+        {/* <i className={`wi ${weatherState}`}></i> */}
+        <img
+          src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
+          alt={weathermood}
+        ></img>
       </div>
       <div className="weatherInfo">
         <div className="temperature">

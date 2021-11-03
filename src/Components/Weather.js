@@ -15,6 +15,7 @@ const Weather = () => {
 
       const { temp, humidity, pressure } = data.main;
       const { main: weathermood } = data.weather[0];
+      const { icon } = data.weather[0];
       const { name: cityname } = data;
       const { speed: windspeed } = data.wind;
       const { country, sunset } = data.sys;
@@ -24,6 +25,7 @@ const Weather = () => {
         humidity,
         pressure,
         weathermood,
+        icon,
         cityname,
         windspeed,
         country,
@@ -38,6 +40,10 @@ const Weather = () => {
     getWeatherInfo();
   }, []);
 
+  const onEnter = (e) => {
+    if (e.key === "Enter") getWeatherInfo();
+  };
+
   return (
     <>
       <div className="wrap">
@@ -50,6 +56,7 @@ const Weather = () => {
             className="searchTerm"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
+            onKeyPress={onEnter}
           />
           <button
             className="searchButton"
